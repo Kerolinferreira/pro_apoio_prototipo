@@ -1,0 +1,172 @@
+/* Reset e base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Conteúdo principal */
+main {
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 40px;
+}
+
+/* Títulos e marca */
+.titulo-principal {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.marca {
+    color: #007BFF;
+    font-weight: bold;
+}
+
+/* Formulários */
+form,
+.formulario-login,
+.formulario-cadastro {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: left;
+    max-width: 500px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+form label,
+form input,
+form select,
+form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input,
+select,
+textarea {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Botões padrão */
+button,
+form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover,
+form button:hover {
+    background-color: #007BFF;
+}
+
+/* Painéis de botões */
+.buttons,
+.painel-candidato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Links auxiliares */
+p a {
+    color: #007BFF;
+    transition: background-color 0.3s ease;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .buttons,
+    .painel-candidato {
+        width: 100%;
+    }
+}

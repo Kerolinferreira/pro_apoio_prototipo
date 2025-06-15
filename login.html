@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Pró Apoio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    function toggleUserOptions() {
+      const tipo = document.getElementById("tipo").value;
+      const candidatos = document.getElementById("selectCandidato");
+      const instituicoes = document.getElementById("selectInstituicao");
+
+      candidatos.style.display = tipo === "candidato" ? "block" : "none";
+      instituicoes.style.display = tipo === "instituicao" ? "block" : "none";
+    }
+
+    function acessarPerfil() {
+      const tipo = document.getElementById("tipo").value;
+      let destino = "";
+
+      if (tipo === "candidato") {
+        const nome = document.getElementById("nomeCandidato").value;
+        destino = nome;
+      } else if (tipo === "instituicao") {
+        const nome = document.getElementById("nomeInstituicao").value;
+        destino = nome;
+      }
+
+      if (destino) {
+        window.location.href = destino + ".html";
+      } else {
+        alert("Por favor, selecione um nome.");
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Login</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Página Inicial</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Escolha seu tipo de acesso</h2>
+
+    <form onsubmit="event.preventDefault(); acessarPerfil();">
+      <label for="tipo">Sou:</label>
+      <select id="tipo" onchange="toggleUserOptions()" required>
+        <option value="">Selecione...</option>
+        <option value="candidato">Candidato</option>
+        <option value="instituicao">Instituição</option>
+      </select><br><br>
+
+      <div id="selectCandidato" style="display: none;">
+        <label for="nomeCandidato">Nome do Candidato:</label>
+        <select id="nomeCandidato">
+          <option value="">Selecione...</option>
+          <option value="joana">Joana</option>
+          <option value="miquelangela">Miquelângela</option>
+          <option value="karineu">Karineu</option>
+          <option value="leandro">Leandro</option>
+          <option value="yasmin">Yasmin</option>
+        </select><br><br>
+      </div>
+
+      <div id="selectInstituicao" style="display: none;">
+        <label for="nomeInstituicao">Nome da Instituição:</label>
+        <select id="nomeInstituicao">
+          <option value="">Selecione...</option>
+          <option value="escola-sol">Escola Sol</option>
+          <option value="educa-mais">Educa Mais</option>
+          <option value="instituto-luz">Instituto Luz</option>
+          <option value="centro-vida">Centro Vida</option>
+          <option value="nova-esperanca">Nova Esperança</option>
+        </select><br><br>
+      </div>
+
+      <button type="submit">Entrar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Pró Apoio. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicitar Contato - Pró Apoio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1><span class="marca">Pró Apoio</span></h1>
+    <nav aria-label="Menu de navegação">
+      <ul>
+        <li><a href="index.html">Página Inicial</a></li>
+        <li><a href="area_instituicao.html">Área da Instituição</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Solicitar Contato</h2>
+    <form aria-label="Formulário de solicitação de contato" class="formulario-cadastro">
+      <label for="instituicao">Nome da Instituição:</label>
+      <input type="text" id="instituicao" name="instituicao" required />
+
+      <label for="intencoes">Intenções:</label>
+      <textarea id="intencoes" name="intencoes" required></textarea>
+
+      <label for="proposta">Proposta de Entrevista:</label>
+      <textarea id="proposta" name="proposta" required></textarea>
+
+      <button type="submit" aria-label="Enviar solicitação de contato">Enviar</button>
+      <button type="reset" aria-label="Cancelar e limpar formulário">Cancelar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Pró Apoio. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

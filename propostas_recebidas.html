@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propostas Recebidas - Pró Apoio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    function toggleVisibility(id) {
+      var element = document.getElementById(id);
+      if (element.style.display === "none" || element.style.display === "") {
+        element.style.display = "block";
+      } else {
+        element.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1><span class="marca">Pró Apoio</span></h1>
+    <nav aria-label="Menu de navegação">
+      <ul>
+        <li><a href="index.html">Página Inicial</a></li>
+        <li><a href="area_candidato.html">Área do Candidato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Propostas Recebidas</h2>
+    <p>Confira abaixo as propostas organizadas por status:</p>
+
+    <section aria-label="Propostas Aceitas">
+      <button onclick="toggleVisibility('aceitas')" aria-label="Ver propostas aceitas">Propostas Aceitas</button>
+      <div id="aceitas" style="display: none;">
+        <p>Aqui vão as propostas aceitas...</p>
+      </div>
+    </section>
+
+    <section aria-label="Propostas Recusadas">
+      <button onclick="toggleVisibility('recusadas')" aria-label="Ver propostas recusadas">Propostas Recusadas</button>
+      <div id="recusadas" style="display: none;">
+        <p>Aqui vão as propostas recusadas...</p>
+      </div>
+    </section>
+
+    <section aria-label="Propostas Pendentes">
+      <button onclick="toggleVisibility('pendentes')" aria-label="Ver propostas pendentes">Propostas Pendentes</button>
+      <div id="pendentes" style="display: none;">
+        <p>Aqui vão as propostas pendentes...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Pró Apoio. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

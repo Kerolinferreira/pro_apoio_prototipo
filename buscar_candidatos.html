@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Busca de Candidatos - Pró Apoio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .container {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .filters {
+        flex: 1;
+        min-width: 250px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+    }
+
+    .candidates {
+        flex: 3;
+    }
+
+    .candidate {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #fff;
+    }
+
+    .no-results {
+        text-align: center;
+        font-size: 18px;
+        color: #555;
+        margin-top: 20px;
+    }
+
+    .filter-item {
+        margin-bottom: 15px;
+    }
+
+    .filter-item label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .filter-item select,
+    .filter-item input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><span class="marca">Pró Apoio</span></h1>
+    <nav aria-label="Menu de navegação">
+      <ul>
+        <li><a href="index.html">Página Inicial</a></li>
+        <li><a href="area_instituicao.html">Área da Instituição</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Buscar Candidatos</h2>
+    <div class="container">
+      <section class="filters" aria-label="Filtros de busca">
+        <h3>Filtros</h3>
+        <div class="filter-item">
+          <label for="escolaridade">Escolaridade</label>
+          <select id="escolaridade" onchange="filtrarCandidatos()">
+            <option value="">Todos</option>
+            <option value="fundamental">Ensino Fundamental</option>
+            <option value="medio">Ensino Médio</option>
+            <option value="superior">Ensino Superior</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label for="experiencia">Experiência com Deficiência</label>
+          <select id="experiencia" onchange="filtrarCandidatos()">
+            <option value="">Todos</option>
+            <option value="visual">Deficiência Visual</option>
+            <option value="auditiva">Deficiência Auditiva</option>
+            <option value="fisica">Deficiência Física</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label for="localizacao">Localização (km)</label>
+          <input type="number" id="localizacao" min="0" placeholder="Distância em km" oninput="filtrarCandidatos()" />
+        </div>
+      </section>
+
+      <section class="candidates" id="candidates" aria-label="Lista de candidatos">
+        <div class="candidate" data-escolaridade="medio" data-experiencia="visual" data-localizacao="10">
+          <h3><a href="joana.html">Joana</a></h3>
+        </div>
+        <div class="candidate" data-escolaridade="superior" data-experiencia="auditiva" data-localizacao="15">
+          <h3><a href="Miquelângela.html">Miquelângela</a></h3>
+        </div>
+        <div class="candidate" data-escolaridade="fundamental" data-experiencia="fisica" data-localizacao="20">
+          <h3><a href="karineu.html">Karineu</a></h3>
+        </div>
+        <div class="no-results" id="no-results" style="display: none;">
+          Nenhum resultado encontrado.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Pró Apoio. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    function filtrarCandidatos() {
+      const escolaridade = document.getElementById('escolaridade').value;
+      const experiencia = document.getElementById('experiencia').value;
+      const localizacao = document.getElementById('localizacao').value;
+
+      const candidatos = document.querySelectorAll('.candidate');
+      let resultadosEncontrados = false;
+
+      candidatos.forEach(candidato => {
+        const candidatoEscolaridade = candidato.getAttribute('data-escolaridade');
+        const candidatoExperiencia = candidato.getAttribute('data-experiencia');
+        const candidatoLocalizacao = candidato.getAttribute('data-localizacao');
+
+        let mostrar = true;
+
+        if (escolaridade && candidatoEscolaridade !== escolaridade) {
+          mostrar = false;
+        }
+
+        if (experiencia && candidatoExperiencia !== experiencia) {
+          mostrar = false;
+        }
+
+        if (localizacao && parseInt(candidatoLocalizacao) > parseInt(localizacao)) {
+          mostrar = false;
+        }
+
+        candidato.style.display = mostrar ? 'block' : 'none';
+        if (mostrar) resultadosEncontrados = true;
+      });
+
+      document.getElementById('no-results').style.display = resultadosEncontrados ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>

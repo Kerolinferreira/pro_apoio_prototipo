@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leandro - Candidato</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const tipo = params.get("tipo");
+            if (tipo === "instituicao") {
+                document.querySelectorAll(".privado-candidato").forEach(el => el.style.display = "none");
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Leandro</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li class="privado-candidato"><a href="area_candidato.html">Área do Candidato</a></li>
+                <li class="privado-candidato"><a href="_alterar_informacoes_candidato.html">Alterar Informações</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <p><strong>Escolaridade:</strong> Ensino Superior Completo</p>
+        <p><strong>Experiência:</strong> Deficiência Visual</p>
+        <p><strong>Localização:</strong> 5 km</p>
+        <p><strong>Sobre:</strong> Especialista em braile e acessibilidade educacional.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Pró Apoio. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
